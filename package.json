@@ -1,0 +1,20 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "Simple notes taking app through the command line",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.js",
+    "Lodash",
+    "yargs"
+  ],
+  "author": "Joseph Mendoza",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "yargs": "^12.0.1"
+  }
+}
