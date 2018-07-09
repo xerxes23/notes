@@ -1,7 +1,7 @@
 {
   "name": "notes-app",
   "version": "1.0.0",
-  "description": "Simple notes taking app through the command line",
+  "description": "Simple command-line note taking app",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
