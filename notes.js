@@ -2,6 +2,12 @@ console.log("Starting notes.js");
 
 const fs = require("fs");
 
+const Box = x => ({
+  map: f => Box(f(x)),
+  fold: f => f(x),
+  inspect: () => `Box(${x})`
+});
+
 const fetchNotes = () => {
   try {
     const notesString = fs.readFileSync("notes-data.json");
@@ -38,9 +44,18 @@ const getNote = title => {
   console.log(`Getting ${title}`);
 };
 
-const removeNote = title => {
-  console.log(`Removing ${title}`);
-};
+const removeNote = title =>
+  Box()
+    .map(() => fetchNotes())
+    .map(notes => notes.filter(note => note.title !== title))
+    .fold(notes => {
+      if (fetchNotes().length !== notes.length) {
+        saveNotes(notes);
+        return true;
+      } else {
+        return false;
+      }
+    });
 
 module.exports = {
   addNote,
