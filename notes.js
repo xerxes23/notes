@@ -20,6 +20,11 @@ const fetchNotes = () => {
 const saveNotes = notes =>
   fs.writeFileSync("notes-data.json", JSON.stringify(notes));
 
+const logNote = note =>
+  console.log(`---
+Title: ${note.title}
+Body: ${note.body}`);
+
 const addNote = (title, body) => {
   let notes = [];
   const note = {
@@ -62,5 +67,6 @@ module.exports = {
   addNote,
   getAll,
   getNote,
-  removeNote
+  removeNote,
+  logNote
 };
