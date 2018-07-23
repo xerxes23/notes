@@ -20,10 +20,11 @@ const fetchNotes = () => {
 const saveNotes = notes =>
   fs.writeFileSync("notes-data.json", JSON.stringify(notes));
 
-const logNote = note =>
+const logNote = note => {
   console.log(`---
 Title: ${note.title}
 Body: ${note.body}`);
+};
 
 const addNote = (title, body) => {
   let notes = [];
@@ -42,7 +43,7 @@ const addNote = (title, body) => {
 };
 
 const getAll = () => {
-  console.log(`Getting all notes!`);
+  return fetchNotes()
 };
 
 const getNote = title => {
